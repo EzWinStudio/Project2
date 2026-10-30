@@ -1,0 +1,418 @@
+export type Category = "bot" | "web" | "game" | "reel" | "lab";
+
+export type Project = {
+  id: string;
+  index: string;
+  title: string;
+  kicker: string;
+  category: Category;
+  categoryLabel: string;
+  status: string;
+  duration: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  stack: string[];
+  stats: { value: string; label: string }[];
+  logo?: string;
+  art: "logo" | "reel" | "platform";
+  accent: string;
+  span: "wide" | "narrow" | "third";
+};
+
+export const categories: { id: "all" | Category; label: string }[] = [
+  { id: "all", label: "Tümü" },
+  { id: "bot", label: "Botlar" },
+  { id: "web", label: "Web" },
+  { id: "game", label: "Oyun" },
+  { id: "reel", label: "Kurgu & Ses" },
+  { id: "lab", label: "Lab" },
+];
+
+export const projects: Project[] = [
+  {
+    id: "aegis",
+    index: "01",
+    title: "Aegis",
+    kicker: "GUARD / BOT",
+    category: "bot",
+    categoryLabel: "Discord Guard Botu",
+    status: "ÜRETİM",
+    duration: "00:04:12:06",
+    tagline: "Sunucuyu saat 03:00'te de ayakta tutan koruma katmanı.",
+    description:
+      "Raid, phishing ve yetki suistimalini olay büyümeden yakalayan Discord guard botu. Yedek, geri yükleme ve acil durum modu aynı panelde; sunucu sahibi tek ekrandan tüm savunmayı yönetiyor.",
+    features: [
+      "25 guard modülü: anti-raid, anti-phishing, rol / kanal / üye koruması",
+      "Olay bazlı threat score ve trust sistemi",
+      "Otomatik yedek, snapshot ve geri yükleme",
+      "Panic mode ve lockdown; Express tabanlı yönetim paneli",
+      "Whitelist, karantina ve ceza politikaları",
+    ],
+    stack: ["Node.js", "discord.js 14", "Express"],
+    stats: [
+      { value: "25", label: "guard modülü" },
+      { value: "11", label: "yönetim komutu" },
+      { value: "7/24", label: "koruma" },
+    ],
+    logo: "/logos/aegis.jpg",
+    art: "logo",
+    accent: "#8b5cf6",
+    span: "wide",
+  },
+  {
+    id: "nexora",
+    index: "02",
+    title: "Nexora",
+    kicker: "TICKET / BOT",
+    category: "bot",
+    categoryLabel: "Ticket Botu",
+    status: "ÜRETİM",
+    duration: "00:09:38:02",
+    tagline: "Destek talepleri Discord'da değil, kendi panelinde.",
+    description:
+      "Bot ve web paneli tek süreçte çalışıyor. Sunucu sahibi ticket türlerini, açılış sorularını, limitleri ve kapanış kurallarını kendisi tanımlıyor; panel Discord ile canlı senkron kalıyor.",
+    features: [
+      "Discord OAuth2 oturumu, JWT ve HttpOnly çerez",
+      "SSE ile panel ↔ kanal canlı akışı",
+      "HTML transkript, form yanıtları ve premium lisans",
+      "Kurulum sihirbazı: kanal ve rolleri idempotent hazırlar",
+      "MongoDB; bağlantı kopunca yerel dosyayla çalışmaya devam eder",
+    ],
+    stack: ["Node.js", "MongoDB", "Express", "Tailwind", "OAuth2"],
+    stats: [
+      { value: "5", label: "panel rotası" },
+      { value: "SSE", label: "canlı akış" },
+      { value: "1", label: "süreç" },
+    ],
+    logo: "/logos/nexora.jpg",
+    art: "logo",
+    accent: "#6366f1",
+    span: "narrow",
+  },
+  {
+    id: "vertex",
+    index: "03",
+    title: "Vertex",
+    kicker: "MÜZİK / TOPLULUK",
+    category: "bot",
+    categoryLabel: "Topluluk Botu",
+    status: "ÜRETİM",
+    duration: "00:13:05:19",
+    tagline: "Müzik, ekonomi ve topluluk: tek botta 105 komut.",
+    description:
+      "Ses kanalında kesintisiz müzik, ekonomi oyunları ve topluluk araçları. EJS tabanlı web paneliyle sunucu tarayıcıdan yönetiliyor; görseller canvas üzerinde üretiliyor.",
+    features: [
+      "discord-player ve ffmpeg ile ses akışı",
+      "105 komut: müzik, ekonomi, çekiliş, moderasyon",
+      "EJS web paneli ve oturum yönetimi",
+      "Canvas ile üretilen profil ve oyun görselleri",
+      "croxydb ile hızlı yerel depolama",
+    ],
+    stack: ["Node.js", "discord.js", "discord-player", "EJS", "Canvas"],
+    stats: [
+      { value: "105", label: "komut" },
+      { value: "1", label: "web paneli" },
+      { value: "∞", label: "kuyruk" },
+    ],
+    logo: "/logos/vertex.jpg",
+    art: "logo",
+    accent: "#a855f7",
+    span: "narrow",
+  },
+  {
+    id: "animax",
+    index: "04",
+    title: "AniMax",
+    kicker: "ANIME / PLATFORM",
+    category: "web",
+    categoryLabel: "Anime Platformu",
+    status: "GELİŞTİRME",
+    duration: "00:21:44:11",
+    tagline: "AniList kataloğu, kendi oynatıcın, tek adreste.",
+    description:
+      "AniList GraphQL'inden canlı gelen keşif platformu: sezon kataloğu, haftalık yayın takvimi, karakterler ve bölüm listeleri. Oynatıcı sıfırdan yazıldı; hesaplar ve izleme listesi sunucuda tutuluyor.",
+    features: [
+      "AniList GraphQL'inden canlı katalog, özetler sunucuda Türkçeye çevriliyor",
+      "Hesap sistemi: Google, Discord ve MyAnimeList ile giriş; scrypt + oturum çerezi",
+      "İzleme listesi ve ilerleme sunucuda, Node 24'ün yerleşik SQLite'ında",
+      "Sıfırdan oynatıcı: ambilight, klavye kısayolları, kaldığın yer",
+      "Next.js 16 App Router, React 19; PPR ve cacheComponents",
+    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "SQLite", "AniList"],
+    stats: [
+      { value: "11", label: "sayfa" },
+      { value: "7", label: "API rotası" },
+      { value: "PPR", label: "render" },
+    ],
+    logo: "/logos/animax.png",
+    art: "logo",
+    accent: "#d946ef",
+    span: "wide",
+  },
+  {
+    id: "fivem",
+    index: "05",
+    title: "EzWin FiveM",
+    kicker: "SCRIPT / STÜDYO",
+    category: "game",
+    categoryLabel: "Script Stüdyosu",
+    status: "STÜDYO",
+    duration: "00:27:16:08",
+    tagline: "FiveM için script geliştiren ve satan stüdyo.",
+    description:
+      "EzWin FiveM, FiveM sunucularına script geliştiren ve satan stüdyo. QBCore üzerine kurulu resource paketleri hazırlanıyor; kurulum, veri düzeni ve test sunucusu aynı çatıda.",
+    features: [
+      "QBCore uyumlu script ve resource paketleri",
+      "13 resource paketi; oxmysql, PolyZone ve spawn selector",
+      "Kurulum ve veri düzeni; txAdmin, gamebuild 3751",
+    ],
+    stack: ["FiveM", "FXServer", "QBCore", "Lua", "txData"],
+    stats: [
+      { value: "13", label: "script paketi" },
+      { value: "QBCore", label: "framework" },
+      { value: "1", label: "test sunucusu" },
+    ],
+    logo: "/logos/fivem.png",
+    art: "logo",
+    accent: "#22d3ee",
+    span: "third",
+  },
+  {
+    id: "platform",
+    index: "06",
+    title: "Platform Switcher",
+    kicker: "LAB / DISCORD",
+    category: "lab",
+    categoryLabel: "Presence Userscript",
+    status: "LAB",
+    duration: "00:31:02:23",
+    tagline: "Discord seni nerede görsün? Sen seç.",
+    description:
+      "Discord istemcisinin webpack modüllerini keşfedip presence platformunu değiştiren userscript. Windows, web, Android, iOS, Xbox, PlayStation ve VR arasında anlık geçiş.",
+    features: [
+      "7 platform arasında anlık geçiş",
+      "Discord webpack chunk'larından modül keşfi",
+      "Yeniden yüklemeye dayanıklı, kendi arayüzünü enjekte eden yapı",
+    ],
+    stack: ["JavaScript", "Discord internals", "Userscript"],
+    stats: [{ value: "7", label: "platform" }],
+    art: "platform",
+    accent: "#5eead4",
+    span: "third",
+  },
+  {
+    id: "reel",
+    index: "07",
+    title: "Reel / Kurgu",
+    kicker: "EDIT / SHORT-FORM",
+    category: "reel",
+    categoryLabel: "Kurgu Arşivi",
+    status: "ARŞİV",
+    duration: "00:36:40:15",
+    tagline: "Kısa form, sert ritim, temiz kesim.",
+    description:
+      "Sosyal medya ve topluluk için kısa form kurgular: ritim kesme, ses-motion senkronu, altyazı ve renk. Arşivde dikey ve yatay onlarca klip var.",
+    features: [
+      "Ritim odaklı hızlı kesim",
+      "Ses ve hareket senkronu",
+      "Altyazı, renk ve dikey format çıkışları",
+    ],
+    stack: ["Kurgu", "Ses", "Motion", "Altyazı"],
+    stats: [{ value: "93", label: "arşiv klibi" }],
+    art: "reel",
+    accent: "#f472b6",
+    span: "third",
+  },
+  {
+    id: "studio",
+    index: "08",
+    title: "EzWinStudio",
+    kicker: "STÜDYO / ROBLOX",
+    category: "game",
+    categoryLabel: "Roblox Stüdyosu",
+    status: "AJANS",
+    duration: "00:41:12:03",
+    tagline: "Roblox dünyası için harita, kod ve arayüz; tek çatı altında.",
+    description:
+      "Roblox Studio ve tasarım ajansı. Harita ve çevre tasarımından Luau ile sunucu-istemci sistemlerine, 3D modellemeden arayüz tasarımına kadar işin tamamı aynı ekipte ilerliyor.",
+    features: [
+      "Harita ve çevre tasarımı, Roblox Studio üzerinde",
+      "Luau backend ve client sistemleri",
+      "3D modelleme ve prop üretimi",
+      "UI/UX: menü, HUD ve envanter ekranları",
+    ],
+    stack: ["Roblox Studio", "Luau", "3D", "UI/UX"],
+    stats: [
+      { value: "4", label: "uzmanlık" },
+      { value: "1", label: "çatı marka" },
+    ],
+    logo: "/logos/studio.jpg",
+    art: "logo",
+    accent: "#a78bfa",
+    span: "narrow",
+  },
+  {
+    id: "cata",
+    index: "09",
+    title: "CATA Store",
+    kicker: "ROBUX / MAĞAZA",
+    category: "web",
+    categoryLabel: "Roblox Mağazası",
+    status: "BAKIMDA",
+    duration: "00:45:27:09",
+    tagline: "Robux paketleri, sipariş takibi ve yönetim paneli tek sitede.",
+    description:
+      "Roblox oyuncularına yönelik Robux mağazası: paket seçimi, sipariş sorgulama ve yönetici paneli. Gizlilik politikası ve kullanım şartlarıyla birlikte tam bir sipariş akışı kuruyor.",
+    features: [
+      "Robux paketleri ve sipariş oluşturma",
+      "Sipariş sorgulama ekranı",
+      "Yönetici paneli",
+      "Gizlilik politikası ve kullanım şartları",
+    ],
+    stack: ["Vercel", "Panel", "Sipariş akışı"],
+    stats: [{ value: "3", label: "mağaza adımı" }],
+    logo: "/logos/catastore.jpg",
+    art: "logo",
+    accent: "#f59e0b",
+    span: "wide",
+  },
+  {
+    id: "cheat",
+    index: "10",
+    title: "EzWinCheat",
+    kicker: "LAB / LUAU",
+    category: "lab",
+    categoryLabel: "Luau Aracı",
+    status: "LAB",
+    duration: "00:48:53:14",
+    tagline: "Oyun mekaniklerini test etmek için Luau tabanlı araç.",
+    description:
+      "Roblox tarafında oyun mekaniklerini incelemek ve test etmek için Luau ile yazılmış deneysel araç seti. Lab kategorisindeki denemelerin bir parçası.",
+    features: [
+      "Luau ile yazılmış analiz araçları",
+      "Oyun mekanikleri ve davranış testi",
+    ],
+    stack: ["Luau", "Roblox"],
+    stats: [{ value: "Luau", label: "taban" }],
+    logo: "/logos/cheat.jpg",
+    art: "logo",
+    accent: "#f43f5e",
+    span: "third",
+  },
+  {
+    id: "music",
+    index: "11",
+    title: "EzWinMusic",
+    kicker: "MÜZİK / STÜDYO",
+    category: "reel",
+    categoryLabel: "Müzik Stüdyosu",
+    status: "STÜDYO",
+    duration: "00:52:09:21",
+    tagline: "EzWin'in müzik stüdyosu.",
+    description:
+      "EzWinMusic, EzWin'in müzik tarafındaki stüdyosu. Müzik ve ses işleri, kurgu ve diğer prodüksiyonlarla aynı çatı altında yürüyor.",
+    features: ["Müzik ve ses işleri", "Stüdyo prodüksiyonu"],
+    stack: ["Müzik", "Ses", "Prodüksiyon"],
+    stats: [{ value: "Stüdyo", label: "müzik" }],
+    logo: "/logos/music.jpg",
+    art: "logo",
+    accent: "#38bdf8",
+    span: "third",
+  },
+  {
+    id: "corp",
+    index: "12",
+    title: "EZWIN Corp.",
+    kicker: "KİMLİK / SCP",
+    category: "lab",
+    categoryLabel: "Kurumsal Kimlik",
+    status: "KONSEPT",
+    duration: "00:56:34:07",
+    tagline: "SCP evreninden esinlenen kurumsal kimlik.",
+    description:
+      "SCP konsepti üzerine kurulu kurumsal kimlik çalışması: logo, hiyerarşi ve marka dili. EzWin'in kurumsal yüzünü kurgusal bir dille ele alan bir lab denemesi.",
+    features: ["SCP konseptli logo ve kimlik", "Rol ve hiyerarşi düzeni"],
+    stack: ["Kimlik", "Konsept", "SCP"],
+    stats: [{ value: "SCP", label: "konsept" }],
+    logo: "/logos/ezwin-corp.jpg",
+    art: "logo",
+    accent: "#e879f9",
+    span: "third",
+  },
+  {
+    id: "sitesys",
+    index: "13",
+    title: "Site Sistemleri",
+    kicker: "WEB / ALTYAPI",
+    category: "web",
+    categoryLabel: "Site Altyapısı",
+    status: "ALTYAPI",
+    duration: "01:01:18:02",
+    tagline: "Portfolyo ve panel işleri için ortak web altyapısı.",
+    description:
+      "EzWin'in web işlerini tek düzende toplayan altyapı: portfolyo ve tanıtım siteleri, panel ekranları ve ortak tema bileşenleri. Bu portfolyo da aynı yaklaşımın bir örneği.",
+    features: [
+      "Portfolyo ve tanıtım siteleri",
+      "Panel ve yönetim arayüzleri",
+      "Ortak tema ve bileşen altyapısı",
+    ],
+    stack: ["Web", "UI kit", "Panel"],
+    stats: [{ value: "Web", label: "altyapı" }],
+    logo: "/logos/site-sys.jpg",
+    art: "logo",
+    accent: "#a3e635",
+    span: "third",
+  },
+  {
+    id: "assets",
+    index: "14",
+    title: "Studio Asset",
+    kicker: "ROBLOX / ASSET",
+    category: "lab",
+    categoryLabel: "Hazır Sistemler",
+    status: "PAKET",
+    duration: "01:05:46:11",
+    tagline: "Roblox için hazır sistemler: template, menü ve 3D paketler.",
+    description:
+      "EzWinStudio'nun hazır asset tarafı: template ve uncopylocked tabanlar, menü ile HUD paketleri ve 3D modeller. Yeni bir Roblox projesine sıfırdan başlamak yerine hazır bir zeminden başlatıyor.",
+    features: [
+      "Template ve uncopylocked tabanlar",
+      "Menü, HUD ve arayüz paketleri",
+      "3D model ve prop paketleri",
+    ],
+    stack: ["Roblox", "Luau", "3D"],
+    stats: [{ value: "Hazır", label: "sistem" }],
+    logo: "/logos/asset-template.jpg",
+    art: "logo",
+    accent: "#fb923c",
+    span: "third",
+  },
+  {
+    id: "craft",
+    index: "15",
+    title: "EzCraft",
+    kicker: "MINECRAFT / OYUN",
+    category: "game",
+    categoryLabel: "Minecraft Sunucusu",
+    status: "SUNUCU",
+    duration: "01:09:24:06",
+    tagline: "EzWin'in Minecraft tarafındaki oyun sunucusu.",
+    description:
+      "EzCraft, EzWin'in Minecraft tarafındaki oyun sunucusu. Dünya, oyuncular ve sunucu ayarları tek düzende yönetiliyor.",
+    features: ["Minecraft oyun sunucusu", "Oyunculara açık dünya"],
+    stack: ["Minecraft", "Sunucu"],
+    stats: [{ value: "1", label: "Minecraft sunucusu" }],
+    logo: "/logos/ezcraft.jpg",
+    art: "logo",
+    accent: "#4ade80",
+    span: "third",
+  },
+];
+
+export const heroReel = projects;
+
+export const DISCORD_INVITE = "https://discord.gg/4vYK5vWCy8";
+export const DISCORD_LABEL = "discord.gg/4vYK5vWCy8";
+export const GITHUB_URL = "https://github.com/EzWinStudio";
+export const GITHUB_LABEL = "github.com/EzWinStudio";
