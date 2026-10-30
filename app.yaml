@@ -1,0 +1,11 @@
+[package]
+# First part must be your Wasmer username: <username>/ezwin-portfolyo
+name = "ezwin/ezwin-portfolyo"
+version = "0.1.0"
+description = "EzWin — bot, panel, FiveM ve kurgu portfolyosu"
+
+[dependencies]
+"wasmer/static-web-server" = "1"
+
+[fs]
+public = "out"
