@@ -14,11 +14,11 @@ const capabilities = [
   {
     label: "02 / Web",
     title: "Panel & arayüz",
-    copy: "SSR, canlı akış ve yönetim panelleri; tarayıcıda oturan kontrol katmanı.",
-    big: "4",
-    bigLabel: "web paneli",
+    copy: "Katalog, canlı akış, mağaza ve yönetim panelleri; tarayıcıda oturan katman.",
+    big: "6",
+    bigLabel: "web yüzeyi",
     tint: "#6366f1",
-    chips: ["Next.js 16", "React 19", "TypeScript", "SSE"],
+    chips: ["Next.js 16", "React 19", "Vite", "TypeScript"],
   },
   {
     label: "03 / FiveM",
@@ -58,6 +58,8 @@ const stack = [
   "OAuth2",
   "SSE",
   "EJS",
+  "Vite",
+  "React Router",
   "AniList GraphQL",
 ];
 
@@ -67,7 +69,7 @@ export default function Capabilities() {
       <div className="wrap">
         <div className="sec-head reveal" data-reveal>
           <div>
-            <span className="sec-index">03 / Yetenekler</span>
+            <span className="sec-index">04 / Yetenekler</span>
             <h2 className="sec-title" id="yetenekler-title">
               Tek <em>masa</em>, dört disiplin
             </h2>
@@ -115,11 +117,11 @@ export default function Capabilities() {
               Şu an
             </span>
             <p>
-              <b>AniMax</b> — AniList kataloğu, özel oynatıcı ve hesap sistemi üzerinde
-              çalışıyorum.
+              <b>AniMax ve EnterScans</b> — anime ve manga platformları yayında; katalog,
+              okuyucu ve hesap akışları güncellenmeye devam ediyor.
             </p>
-            <OpenProjectLink id="animax" className="chip">
-              Projeyi aç ↗
+            <OpenProjectLink id="enterscans" className="chip">
+              EnterScans'ı aç ↗
             </OpenProjectLink>
           </div>
         </div>

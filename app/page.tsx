@@ -1,4 +1,5 @@
 import Capabilities from "@/components/Capabilities";
+import Companies from "@/components/Companies";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
@@ -17,6 +18,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <ProjectWall />
+        <Companies />
         <Capabilities />
         <Process />
         <Contact />

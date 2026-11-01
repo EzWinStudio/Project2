@@ -65,8 +65,8 @@ export default function Hero() {
             </h1>
 
             <p className="hero-sub">
-              Discord botları, web panelleri, Roblox dünyaları, FiveM scriptleri, anime
-              platformları ve kısa form kurgu. <strong>Tek kişilik prodüksiyon:</strong> fikirden
+              Discord botları, web panelleri, Roblox dünyaları, FiveM scriptleri, anime ve manga
+              platformları, kısa form kurgu. <strong>Tek kişilik prodüksiyon:</strong> fikirden
               yayına, aynı masada.
             </p>
 

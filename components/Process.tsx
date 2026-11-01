@@ -32,7 +32,7 @@ export default function Process() {
       <div className="wrap">
         <div className="sec-head reveal" data-reveal>
           <div>
-            <span className="sec-index">04 / Süreç</span>
+            <span className="sec-index">05 / Süreç</span>
             <h2 className="sec-title" id="surec-title">
               Fikirden <em>yayına</em>
             </h2>

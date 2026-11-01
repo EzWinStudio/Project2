@@ -15,7 +15,7 @@ export default function Contact() {
       </div>
 
       <div className="wrap contact-inner">
-        <span className="sec-index">05 / İletişim</span>
+        <span className="sec-index">06 / İletişim</span>
         <h2 className="contact-title" id="iletisim-title">
           Sıradaki sistem <em>senin</em> olsun.
         </h2>
@@ -42,6 +42,27 @@ export default function Contact() {
               </span>
             </a>
             <CopyInvite value={DISCORD_INVITE} label="Daveti kopyala" />
+          </div>
+        </div>
+
+        <div className="contact-channels">
+          <div>
+            <span className="label">Discord / topluluk</span>
+            <p>
+              Manga ve anime kanalları açık. Bölüm, çeviri ve sezon sohbeti aynı sunucuda.
+            </p>
+          </div>
+          <div className="channel-tags">
+            <span className="channel-tag">Manga</span>
+            <span className="channel-tag">Anime</span>
+            <a
+              className="chip channel-cta"
+              href={DISCORD_INVITE}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Kanallara katıl ↗
+            </a>
           </div>
         </div>
       </div>

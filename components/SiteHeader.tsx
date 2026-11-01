@@ -6,9 +6,10 @@ import { DISCORD_INVITE } from "@/data/projects";
 const nav = [
   { id: "top", index: "01", label: "Reel" },
   { id: "sistemler", index: "02", label: "Sistemler" },
-  { id: "yetenekler", index: "03", label: "Yetenekler" },
-  { id: "surec", index: "04", label: "Süreç" },
-  { id: "iletisim", index: "05", label: "İletişim" },
+  { id: "sirketler", index: "03", label: "Şirketler" },
+  { id: "yetenekler", index: "04", label: "Yetenekler" },
+  { id: "surec", index: "05", label: "Süreç" },
+  { id: "iletisim", index: "06", label: "İletişim" },
 ];
 
 function pad(value: number) {
